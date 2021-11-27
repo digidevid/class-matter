@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // buat dulu container untuk nampung element baru
+      var container = document.getElementById("app");
+      // buat element baru
+      var newElement = document.createElement("p");
+      // isi konten element baru yg berupa tag paragraf
+      newElement.innerHTML = "Element baru telah terbentuk dan terender";
+      // styling element
+      newElement.style.color = "red";
+      // gabungkan element baru k kontainer yg sudah dibuat
+      container.appendChild(newElement);
+    </script>
+  </body>
+</html>

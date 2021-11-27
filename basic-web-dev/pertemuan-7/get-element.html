@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulasi DOM</title>
+  </head>
+  <body>
+    <h1 id="header"></h1>
+
+    <h2 class="header"></h2>
+
+    <h2 class="header"></h2>
+
+    <h2 class="header"></h2>
+
+    <script>
+      // get element by id
+      var headerOne = document.getElementById("header");
+      headerOne.innerHTML = "We are learning manipulation DOM";
+
+      // get element by class
+      var headerTwo = document.getElementsByClassName("header");
+      headerTwo[0].innerHTML = "Ini header dua";
+
+      // get element by tag
+      var headerThree = document.getElementsByTagName("h2");
+      headerThree[2].innerHTML = "Ini header tiga";
+    </script>
+  </body>
+</html>

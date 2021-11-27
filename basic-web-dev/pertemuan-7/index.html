@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pretemuan 7</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <input type="text" id="test" />
+    <input type="text" id="test2" />
+    <button id="btn">calculate</button>
+    <p id="answer"></p>
+
+    <script>
+      var inputElement = document.getElementById("test");
+      var inputElement2 = document.getElementById("test2");
+      var buttonCalculate = document.getElementById("btn");
+      var answerEl = document.getElementById("answer");
+      function showInputValue(params) {
+        answerEl.innerHTML =
+          parseInt(inputElement.value) + parseInt(inputElement2.value);
+      }
+      buttonCalculate.addEventListener("click", showInputValue);
+
+      // BATAS
+
+      var containerElement = document.getElementById("app");
+
+      var newButton = document.createElement("button");
+      newButton.innerHTML = "Go to google";
+      function redirectToGoogle(event) {
+        // console.log(event);
+        window.location = "https://google.com";
+      }
+      function changeStyleButton(event) {
+        newButton.style.border = "2px solid red";
+        newButton.style.backgroundColor = "yellow";
+      }
+      newButton.addEventListener("click", redirectToGoogle);
+      newButton.addEventListener("mouseover", changeStyleButton);
+      containerElement.appendChild(newButton);
+
+      var newInput = document.createElement("input");
+      newInput.placeholder = "Masukkan kata";
+      function onInputSomething(event) {
+        // console.log(event.target.value);
+      }
+      newInput.addEventListener("input", onInputSomething);
+      containerElement.appendChild(newInput);
+    </script>
+  </body>
+</html>
