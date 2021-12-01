@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="red-team" class="red-team kolom">
+        <h1 class="score score-title">Score Red Team</h1>
+        <h1 id="red-score" class="score">0</h1>
+        <div class="input-container">
+          <input
+            class="input"
+            type="text"
+            placeholder="first score"
+            id="first-score-red"
+          />
+          <input
+            class="input"
+            type="text"
+            placeholder="second score"
+            id="second-score-red"
+          />
+          <input
+            class="input"
+            type="text"
+            placeholder="third score"
+            id="third-score-red"
+          />
+        </div>
+      </div>
+      <div id="blue-team" class="blue-team kolom">
+        <h1 class="score score-title">Score Blue Team</h1>
+        <h1 id="blue-score" class="score">0</h1>
+        <div class="input-container">
+          <input
+            class="input"
+            type="text"
+            placeholder="first score"
+            id="first-score-blue"
+          />
+          <input
+            class="input"
+            type="text"
+            placeholder="second score"
+            id="second-score-blue"
+          />
+          <input
+            class="input"
+            type="text"
+            placeholder="third score"
+            id="third-score-blue"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <button id="btn-calculate" class="calculate-button">Calculate</button>
+    </div>
+    <h1 id="result" class="result"></h1>
+  </body>
+
+  <script>
+    var btnCalculate = document.getElementById("btn-calculate");
+    var containerRedTeam = document.getElementById("red-team");
+    var containerBlueTeam = document.getElementById("blue-team");
+    var result = document.getElementById("result");
+
+    var redFirstScore = document.getElementById("first-score-red");
+    var redSecondScore = document.getElementById("second-score-red");
+    var redThirdScore = document.getElementById("third-score-red");
+
+    var blueFirstScore = document.getElementById("first-score-blue");
+    var blueSecondScore = document.getElementById("second-score-blue");
+    var blueThirdScore = document.getElementById("third-score-blue");
+
+    function calculateValue() {
+      var meanRed =
+        (parseInt(redFirstScore.value) +
+          parseInt(redSecondScore.value) +
+          parseInt(redThirdScore.value)) /
+        3;
+      var meanBlue =
+        (parseInt(blueFirstScore.value) +
+          parseInt(blueSecondScore.value) +
+          parseInt(blueThirdScore.value)) /
+        3;
+      if (meanRed > meanBlue) {
+        containerRedTeam.style.backgroundColor = "green";
+        containerBlueTeam.style.backgroundColor = "red";
+        result.innerHTML = `Tim Merah menang dengan skor final ${meanRed}, mengalahkan Tim Biru dengan skor final ${meanBlue}`;
+      } else if (meanRed < meanBlue) {
+        containerRedTeam.style.backgroundColor = "red";
+        containerBlueTeam.style.backgroundColor = "green";
+        result.innerHTML = `Tim Biru menang dengan skor final ${meanBlue}, mengalahkan Tim Merah dengan skor final ${meanRed}`;
+      } else {
+        containerRedTeam.style.backgroundColor = "yellow";
+        containerBlueTeam.style.backgroundColor = "yellow";
+        result.innerHTML = `Hasil akhir seri antara Tim Merah dan Tim Biru dengan skor final keduanya adalah ${meanRed}`;
+      }
+    }
+
+    btnCalculate.addEventListener("click", calculateValue);
+  </script>
+</html>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .kolom {
+    border: 1px solid black;
+  }
+  .red-team {
+    background-color: gray;
+    height: 500px;
+  }
+  .blue-team {
+    background-color: gray;
+  }
+  .score {
+    text-align: center;
+    font-size: 48px;
+  }
+  .score-title {
+    margin-top: 100px;
+  }
+  .input {
+    display: block;
+    margin: 0 auto;
+  }
+  .calculate-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+  }
+  .result {
+    text-align: center;
+  }
+</style>
